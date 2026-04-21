@@ -5,7 +5,6 @@ if(uri_string()!=""){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
