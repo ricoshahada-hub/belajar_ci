@@ -5,6 +5,19 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
-$routes->get('/produk', 'ProdukController::index');
-$routes->get('/keranjang', 'TransaksiController::index');
+
+// --- RUTE PUBLIC (Bisa diakses tanpa login) ---
+$routes->get('login', 'AuthController::login');
+$routes->post('login', 'AuthController::login');
+$routes->get('logout', 'AuthController::logout');
+
+
+// --- RUTE PROTECTED (Wajib login - Menggunakan Filter 'auth') ---
+$routes->group('', ['filter' => 'auth'], function($routes) {
+    
+    $routes->get('/', 'Home::index');
+    $routes->get('produk', 'ProdukController::index');
+    $routes->get('keranjang', 'TransaksiController::index');
+
+    // Kamu bisa tambah rute lain yang butuh login di dalam sini
+});
