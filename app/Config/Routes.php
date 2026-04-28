@@ -14,10 +14,8 @@ $routes->get('logout', 'AuthController::logout');
 
 // --- RUTE PROTECTED (Wajib login - Menggunakan Filter 'auth') ---
 $routes->group('', ['filter' => 'auth'], function($routes) {
-    
     $routes->get('/', 'Home::index');
     $routes->get('produk', 'ProdukController::index');
     $routes->get('keranjang', 'TransaksiController::index');
-
-    // Kamu bisa tambah rute lain yang butuh login di dalam sini
+    $routes->get('profile', 'ProfileController::index');  // ← TAMBAH INI
 });

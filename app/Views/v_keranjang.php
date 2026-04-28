@@ -1,5 +1,6 @@
-<?= $this-> extend('layout') ?>
-<?= $this-> section('content') ?>
+<?= $this->extend('layout') ?>
+<?= $this->section('content') ?>
+
 ini halaman keranjang
-<?= $this-> endSection ()?>
-<?= $this-> endSection ()?>
+
+<?= $this->endSection() ?>
