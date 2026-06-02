@@ -15,7 +15,7 @@ $password = [
     'id' => 'password',
     'class' => 'form-control',
     'required' => true,
-    'minlength' => 7
+     'minlength' => 7
 ];
 ?>
 
