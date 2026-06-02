@@ -25,7 +25,7 @@ class Filters extends BaseConfig
     'toolbar'       => \CodeIgniter\Filters\DebugToolbar::class,
     'honeypot'      => \CodeIgniter\Filters\Honeypot::class,
     'invalidchars'  => \CodeIgniter\Filters\InvalidChars::class,
-    'secureheaders' => \CodeIgniter\Filters\SecureHeaders::class,
+   'secureheaders' => \CodeIgniter\Filters\SecureHeaders::class,
     'forcehttps'    => \CodeIgniter\Filters\ForceHTTPS::class,
     'pagecache'     => \CodeIgniter\Filters\PageCache::class,
     'auth'          => \App\Filters\Auth::class,

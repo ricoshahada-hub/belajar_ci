@@ -6,16 +6,21 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-// --- RUTE PUBLIC (Bisa diakses tanpa login) ---
+
+
+$routes->get('/', 'Home::index', ['filter' => 'auth']);
+
 $routes->get('login', 'AuthController::login');
 $routes->post('login', 'AuthController::login');
 $routes->get('logout', 'AuthController::logout');
 
-
-// --- RUTE PROTECTED (Wajib login - Menggunakan Filter 'auth') ---
-$routes->group('', ['filter' => 'auth'], function($routes) {
-    $routes->get('/', 'Home::index');
-    $routes->get('produk', 'ProdukController::index');
-    $routes->get('keranjang', 'TransaksiController::index');
-    $routes->get('profile', 'ProfileController::index');  // ← TAMBAH INI
+$routes->get('/produk', 'ProdukController::index', ['filter' => 'auth']);
+$routes->group('produk', ['filter' => 'auth'], function ($routes) { 
+    $routes->get('', 'ProdukController::index');
+    $routes->post('', 'ProdukController::create');
+    $routes->post('edit/(:any)', 'ProdukController::edit/$1');
+    $routes->get('delete/(:any)', 'ProdukController::delete/$1');
 });
+
+$routes->get('/keranjang', 'TransaksiController::index', ['filter' => 'auth']);
+$routes->get('/profile', 'AuthController::profile', ['filter' => 'auth']);
